@@ -23,6 +23,8 @@ class Particle {
     this.edges();
   }
 
+  randomColor= random(0,255)
+
   draw(){
     noStroke();
     fill(255, 204, 0,);
@@ -74,13 +76,13 @@ function draw(){
   // // fill(255);
   // noStroke();
   // ellipse(mouseX, mouseY, 60, 60);
-
+  strokebum = map(mouseX,mouseY)
   noFill();
-  stroke(20);
+  stroke(strokebum);
 
   var r = random()
 
-  strokeWeight(66);
+  strokeWeight(strokebum);
   arcL = map(mouseY, 0, mouseY, 0, TWO_PI)
   arc(width/2,height/2, arcsize1,arcsize1,0,arcL);
 
