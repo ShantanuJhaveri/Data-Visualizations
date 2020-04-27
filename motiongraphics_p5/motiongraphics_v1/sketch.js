@@ -15,7 +15,7 @@ class Particle {
   constructor() {
     this.pos = createVector(random(width),random(height));
     this.size = 10;
-    this.vel = createVector(random(-2,+2),random(-2,+2))
+    this.vel = createVector(random(-20,+20),random(-20,+20))
   }
 
   update(){
@@ -39,6 +39,7 @@ class Particle {
   }
 
   checkParticles(particles){
+    //https://p5js.org/examples/simulate-particles.html
     particles.forEach(particle => {
       const d = dist(this.pos.x, this.pos.y, particle.pos.x, particle.pos.y);
       if(d < 120){
