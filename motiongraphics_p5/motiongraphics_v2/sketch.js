@@ -6,6 +6,7 @@ var col = {
 }
 let song
 let myFont
+let bg;
 
 function preload() {
   myFont = loadFont('ITCGrouch.ttf');
@@ -21,6 +22,7 @@ function setup() {
   textFont(myFont);
   // textSize(36);
   textAlign(CENTER, CENTER);
+  bg = loadImage('photo.jpg');
 }
 
 function draw() {
