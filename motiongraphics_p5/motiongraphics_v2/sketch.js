@@ -1,5 +1,4 @@
 let adjust = 10;
-let colorA,colorB
 var col = {
   r:0,
   b:0,
@@ -7,6 +6,8 @@ var col = {
 }
 let song
 let myFont
+
+
 
 function preload() {
   myFont = loadFont('ITCGrouch.ttf');
@@ -24,9 +25,6 @@ function setup() {
   textAlign(CENTER, CENTER);
 }
 
-
-
-
 function draw() {
   // let time = millis();
   // // rotateX(time / 1000);
@@ -38,7 +36,8 @@ function draw() {
   if (keyIsPressed === true) {
     if (keyCode === UP_ARROW) {
       adjust++;
-    } else if (keyCode === DOWN_ARROW) {
+    }
+    else if (keyCode === DOWN_ARROW) {
       adjust--;
     }
     else if (keyCode === 32){
@@ -50,15 +49,16 @@ function draw() {
         }
     }
   }
+
   if (adjust <= 5) {
     adjust = 5;
   }
   if (adjust >= 50) {
     adjust = 50;
   }
+
   ortho();
   background(0);
-
 
   if (mouseIsPressed) {
     background(col.r,col.g,col.b)
@@ -72,12 +72,11 @@ function draw() {
 
       if (mouseIsPressed) {
         drawTrigger(map_x,map_y)
-      } else {
+      }
+      else {
         drawWarning(map_x,map_y)
       }
-
     }
-
   }
 }
 
@@ -90,18 +89,14 @@ function trip(x, y) {
   translate(x, y);
   let m2mx = map(mouseX, 0, width, -width / 2, width / 2);
   let m2my = map(mouseY, 0, height, -height / 2, height / 2);
-
   let roff = dist(m2mx, m2my, x, y) / -2;
-
   rotateY(radians(mouseX));
   rotateX(radians(mouseY));
-
   let s = (width / adjust / 3.2) + roff;
-
   fill(255);
+
   if(mouseIsPressed) {
     fill(col.r,col.g,col.b);
-
   }
   box(s);
 
