@@ -1,0 +1,11 @@
+varying vec2 vUv;
+uniform sampler2D source[2];
+uniform float radius;
+
+void main() {
+    vec3 pos = texture2D( source[0], vUv ).rgb;
+    vec3 vel = texture2D( source[1], vUv ).rgb;
+    vec3 newPos = (pos + vel);
+
+    gl_FragColor = vec4(newPos, 1.0);
+}
