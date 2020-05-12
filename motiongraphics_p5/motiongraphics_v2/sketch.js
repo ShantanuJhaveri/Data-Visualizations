@@ -7,8 +7,6 @@ var col = {
 let song
 let myFont
 
-
-
 function preload() {
   myFont = loadFont('ITCGrouch.ttf');
   soundFormats('mp3')
@@ -40,21 +38,13 @@ function draw() {
     else if (keyCode === DOWN_ARROW) {
       adjust--;
     }
-    else if (keyCode === 32){
-        if (song.isPlaying()){
-          song.stop();
-        }
-        else{
-          song.play()
-        }
-    }
   }
 
-  if (adjust <= 5) {
-    adjust = 5;
+  if (adjust <= 3) {
+    adjust = 3;
   }
-  if (adjust >= 50) {
-    adjust = 50;
+  if (adjust >= 20) {
+    adjust = 20;
   }
 
   ortho();
@@ -64,11 +54,14 @@ function draw() {
     background(col.r,col.g,col.b)
   }
 
+  var t = adjust / 5
+
   for (let i = 0; i < adjust; i++) {
     for (let j = 0; j < adjust; j++) {
-      let map_x = map(i, 0, adjust - 1, -width / 2, width / 2);
-      let map_y = map(j, 0, adjust - 1, -height / 2, height / 2);
+      let map_x = map(i, 0, adjust - 1, -width / t, width / t);
+      let map_y = map(j, 0, adjust - 1, -height / t, height / t);
       trip(map_x, map_y);
+      console.log(t)
 
       if (mouseIsPressed) {
         drawTrigger(map_x,map_y)
@@ -128,4 +121,16 @@ function drawTrigger(x,y){
 function drawWarning(x,y){
   textSize(100)
   text('WARNING', 1, 1);
+}
+
+function keyPressed(){
+  //m
+  if (keyCode === 77){
+    if (song.isPlaying()){
+      song.stop();
+    }
+    else{
+      song.play()
+    }
+  }
 }
