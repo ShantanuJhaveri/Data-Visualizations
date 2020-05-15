@@ -70,7 +70,7 @@ function draw() {
       }
       else {
         drawWarning(map_x,map_y)
-      }
+       }
     }
   }
 }
